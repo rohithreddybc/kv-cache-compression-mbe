@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you evaluate KV cache compression under the MBE protocol, please cite the survey below."
-title: "Breaking the Memory Wall: A Survey of Key-Value Cache Compression for Large Language Model Inference and the Matched-Budget Evaluation Protocol"
+title: "Breaking the Memory Wall: A Survey of Key-Value (KV) Cache Compression for Efficient Large Language Model (LLM) Inference"
 abstract: "Survey of KV cache compression for LLM inference, introducing the Matched-Budget Evaluation (MBE) protocol for standardized, fixed-budget reporting."
 authors:
   - given-names: "Rohith"

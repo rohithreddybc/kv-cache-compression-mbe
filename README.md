@@ -7,10 +7,9 @@ task suites (LongBench, RULER, SCBench, GSM8K, and a multi-turn/agentic trace) a
 fixes the axes along which their results are compared, so that numbers from different
 papers can finally be placed on a single picture.
 
-> Companion to the survey *"Breaking the Memory Wall: A Survey of Key-Value Cache
-> Compression for Large Language Model Inference and the Matched-Budget Evaluation
-> Protocol"* (Artificial Intelligence Review, under review). See **Section 10** of the
-> paper for the protocol specification.
+> Companion to the survey *"Breaking the Memory Wall: A Survey of Key-Value (KV) Cache
+> Compression for Efficient Large Language Model (LLM) Inference"* (Artificial
+> Intelligence Review, under review), which **introduces the MBE protocol in Section 10**.
 
 ---
 
