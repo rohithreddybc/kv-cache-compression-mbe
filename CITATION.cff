@@ -8,6 +8,8 @@ authors:
     alias: "rohithreddybc"
 year: 2026
 journal: "Artificial Intelligence Review"
+repository-code: "https://github.com/rohithreddybc/mbe-protocol"
+url: "https://github.com/rohithreddybc/mbe-protocol"
 notes: "Status: under review. Update with DOI on acceptance. The MBE protocol is specified in Section 10 of the paper."
 keywords:
   - large language models
