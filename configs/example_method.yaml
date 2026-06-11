@@ -1,0 +1,26 @@
+# Example MBE run config. Copy and edit for your method.
+method:
+  name: KIVI
+  type: quantization          # quantization | eviction | merging | architecture | system
+  prerequisite: training-free # training-free | calibration | pre-training
+  module: methods.kivi        # python module exposing the adapter class
+  class: KIVICompressor
+  args:
+    key_bits_per_budget:      # how this method realises each retained fraction
+      B50: 8
+      B25: 4
+      B12: 2
+  composability:
+    quantization: self
+    eviction: joint-design    # composes | joint-design | conflict
+    paging: composes
+    gqa_mla: composes
+
+model:
+  id: meta-llama/Llama-3.1-8B-Instruct
+  attention: GQA              # L=32, H_kv=8
+
+optional_budgets: []          # add "B06" to include the 6.25% point
+hardware_tier: 1x A100-80GB
+notes: >
+  Per-channel keys, per-token values. Calibration-free. Kernel: fused dequant+attn.

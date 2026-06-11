@@ -1,0 +1,4 @@
+pyyaml>=6.0
+# Bring your own serving/eval backend; MBE is backend-agnostic. Common choices:
+# torch, transformers, vllm  (serving + system metrics)
+# lm-eval                    (task scoring)
