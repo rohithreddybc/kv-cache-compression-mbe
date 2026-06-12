@@ -48,7 +48,7 @@ with gr.Blocks(title="KV Cache Compression Leaderboard (MBE)") as demo:
         "Matched-Budget Evaluation: methods compared at fixed KV-memory budgets. "
         "Cards are pulled live from "
         "[`Rohithreddybc/kv-cache-compression-mbe`](https://huggingface.co/datasets/Rohithreddybc/kv-cache-compression-mbe). "
-        "Submit your own via the [GitHub repo](https://github.com/rohithreddybc/mbe-protocol). "
+        "Submit your own via the [GitHub repo](https://github.com/rohithreddybc/kv-cache-compression-mbe). "
         "**Compare within a (model, budget) group only.**")
     table = gr.Dataframe(
         headers=["Family", "Method", "KV budget", "Accuracy / retention", "Model"],

@@ -46,7 +46,7 @@ flow, a limitations section, and full declarations.
 **Originality and ethics.** This work is original, has not been published elsewhere,
 and is not under consideration by another journal. A preprint will be posted to
 arXiv; the companion MBE protocol and harness are openly available
-(github.com/rohithreddybc/mbe-protocol). Any use of generative-AI tools was limited
+(github.com/rohithreddybc/kv-cache-compression-mbe). Any use of generative-AI tools was limited
 to language editing and reference organisation; all technical content and conclusions
 are the author's own and were verified against primary sources, as stated in the
 declarations.

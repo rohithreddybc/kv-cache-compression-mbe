@@ -46,7 +46,7 @@ comparable.
 ## Why
 Published KV cache compression results are not comparable (different models, budgets,
 tasks, system metrics). MBE fixes the axes. See the companion survey and harness:
-- Harness / protocol: https://github.com/rohithreddybc/mbe-protocol
+- Harness / protocol: https://github.com/rohithreddybc/kv-cache-compression-mbe
 - Survey: "Breaking the Memory Wall: A Survey of Key-Value (KV) Cache Compression for
   Efficient Large Language Model (LLM) Inference" (Artificial Intelligence Review, under
   review).

@@ -37,5 +37,5 @@ updating as new cards are submitted.
 3. The Space builds automatically and pulls cards live from the dataset.
 
 ## Links
-- Protocol + harness: https://github.com/rohithreddybc/mbe-protocol
+- Protocol + harness: https://github.com/rohithreddybc/kv-cache-compression-mbe
 - Dataset: https://huggingface.co/datasets/Rohithreddybc/kv-cache-compression-mbe
