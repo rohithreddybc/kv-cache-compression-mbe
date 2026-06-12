@@ -1,0 +1,28 @@
+{
+  "harness_version": "mbe-0.1.0",
+  "run_type": "CPU smoke test (proof-of-concept, NOT the 7-8B suite)",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_size": "0.5B (GQA)",
+  "task": "passkey retrieval (synthetic, single needle)",
+  "n_samples": 10,
+  "hardware": "CPU / float32",
+  "method_family": "KV quantization (KIVI-style: per-channel keys, per-token values)",
+  "results": {
+    "full-FP": {
+      "kv_budget": "100%",
+      "passkey_acc": 1.0
+    },
+    "KV-8bit": {
+      "kv_budget": "50.0%",
+      "passkey_acc": 1.0
+    },
+    "KV-4bit": {
+      "kv_budget": "25.0%",
+      "passkey_acc": 1.0
+    },
+    "KV-2bit": {
+      "kv_budget": "12.5%",
+      "passkey_acc": 0.0
+    }
+  }
+}
