@@ -70,6 +70,9 @@ Open a PR adding `cards/<method>_<model>.json`. CI re-renders the card and updat
 [`LEADERBOARD.md`](LEADERBOARD.md). Every merged card is a reproducible, citable,
 third-party data point.
 
+## Dataset
+Evaluation manifest + result cards on the Hugging Face Hub: https://huggingface.co/datasets/Rohithreddybc/mbe-kv-cache
+
 ## Cite
 
 If you evaluate under MBE, please cite the survey (see [`CITATION.cff`](CITATION.cff)).
