@@ -1,0 +1,28 @@
+{
+  "protocol": "Matched-Budget Evaluation (MBE)",
+  "version": "0.1.0",
+  "description": "Frozen evaluation specification for KV cache compression. Report at these exact settings so results are comparable.",
+  "budget_ladder_percent": [50, 25, 12.5, 6.25],
+  "budget_definition": "Fraction of the full-cache footprint retained, computed from M_KV = 2*B*T*L*H_kv*D_head*P.",
+  "model_suite": [
+    {"id": "meta-llama/Llama-3.1-8B-Instruct", "attention": "GQA", "tier": "7-8B"},
+    {"id": "Qwen/Qwen2.5-7B-Instruct", "attention": "GQA", "tier": "7-14B"},
+    {"id": "meta-llama/Llama-3.1-70B-Instruct", "attention": "GQA", "tier": ">=70B"}
+  ],
+  "task_suite": [
+    {"name": "long_doc_qa", "source": "LongBench / SCBench", "measures": "retrieval"},
+    {"name": "multi_hop", "source": "RULER", "measures": "tracing + aggregation"},
+    {"name": "instruction_following", "source": "IFEval", "measures": "multi-instruction"},
+    {"name": "reasoning", "source": "GSM8K", "measures": "chain-of-thought (compression-sensitive)"},
+    {"name": "agentic", "source": "one long-horizon / multi-turn trace", "measures": "tool-use stability"}
+  ],
+  "required_system_metrics": [
+    "peak_kv_memory_gb",
+    "decode_throughput_tok_s",
+    "ttft_ms",
+    "max_batch_before_oom",
+    "hardware_tier"
+  ],
+  "method_metadata": ["family", "deployment_prerequisite", "composability"],
+  "notes": "MBE consumes existing public benchmarks under their own licenses; it does not redistribute them. It fixes the axes (budgets, models, metrics) and the reporting card."
+}
