@@ -102,12 +102,12 @@ for run in title.runs:
     run.font.size = Pt(16)
 
 # Artificial Intelligence Review is single-blind: authors are named on the title page.
-centered("Rohith Reddy B. C.¹  ·  [Author 2]²  ·  [Author 3]³  ·  [Author 4]⁴",
+centered("[Author 1]¹  ·  [Author 2]²  ·  [Author 3]³  ·  [Author 4]⁴",
          bold=True, size=12)
 centered("¹[Department], [Institution], [City], [Country]   "
          "²[Affiliation 2]   ³[Affiliation 3]   ⁴[Affiliation 4]",
          italic=True, size=10)
-centered("Corresponding author: Rohith Reddy B. C., rohithreddybc98@gmail.com  ·  "
+centered("Corresponding author: [name], [email]  ·  "
          "ORCID: [add ORCID for each author]", italic=True, size=10)
 doc.add_paragraph()
 
@@ -265,7 +265,9 @@ make_table(
     ],
     caption="Table 1. Positioning of this survey against existing reviews of KV cache and inference "
             "efficiency. No prior survey jointly covers multi-tenant security and agentic degradation, "
-            "and none proposes a standardised evaluation protocol (the right-most column).",
+            "and none proposes a standardised evaluation protocol (the right-most column). "
+            "Takeaway: this survey occupies an unfilled niche, defined by the security, agentic, and "
+            "evaluation-protocol columns that are empty for every other entry.",
     widths=[1.35, 1.85, 0.6, 0.65, 0.65, 0.6, 0.95],
 )
 
@@ -329,7 +331,9 @@ try:
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     pcap = doc.add_paragraph()
     pr = pcap.add_run("Fig. 1. PRISMA-style flow of identification, screening, and "
-                      "inclusion for the survey (counts approximate).")
+                      "inclusion for the survey (counts approximate). Takeaway: coverage is "
+                      "reproducible and selective, 178 KV-cache works analysed in depth out of "
+                      "roughly 612 screened.")
     pr.bold = True; pr.font.size = Pt(9)
     pcap.alignment = WD_ALIGN_PARAGRAPH.CENTER
 except Exception as e:
@@ -353,7 +357,8 @@ try:
     figcap = doc.add_paragraph()
     fr = figcap.add_run("Fig. 2. Four-layer taxonomy of KV cache optimisation used "
                         "in this survey, with the cross-cutting concerns of "
-                        "Sections 8 and 9.")
+                        "Sections 8 and 9. Takeaway: the four layers are complementary rather than "
+                        "competing, and the largest gains come from co-designing across them.")
     fr.bold = True
     fr.font.size = Pt(9)
     figcap.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -836,7 +841,9 @@ make_table(
         ["Direct cache inversion", "Reconstruction from cached KV contents", "Input text", "Reversible cache obfuscation (KV-Cloak)"],
     ],
     caption="Table 2. Reported KV cache security threats in multi-tenant serving and their mitigations "
-            "(Wu et al. 2025; Song et al. 2024; Gu et al. 2025; Luo et al. 2025; Pang et al. 2024; Chu et al. 2025).",
+            "(Wu et al. 2025; Song et al. 2024; Gu et al. 2025; Luo et al. 2025; Pang et al. 2024; Chu et al. 2025). "
+            "Takeaway: the same prefix sharing that drives efficiency is the attack surface, and every "
+            "known mitigation trades some of that efficiency back for isolation.",
     widths=[1.7, 2.2, 1.5, 1.9],
 )
 
@@ -970,7 +977,11 @@ make_table(
         ["System", "PagedAttention, RadixAttention, FlexGen", "Paging, prefix sharing, tiered offload", "Higher utilisation; virtually unbounded", "Lossless", "Engine integration", "Fragmentation, capacity"],
         ["Hardware", "FlashDecoding++, NeuPIMs, PIM/FPGA", "Decode kernels, in-memory compute", "Bandwidth / energy gains", "Lossless", "Specialised hardware", "Bandwidth, von Neumann"],
     ],
-    caption="Table 3. Taxonomy of KV cache optimisation families. Reduction figures are indicative ranges from the cited literature.",
+    caption="Table 3. Taxonomy of KV cache optimisation families. Reduction figures are indicative ranges "
+            "from the cited literature. Takeaway: architectural, system, and hardware methods are "
+            "lossless but need pre-training or special hardware, whereas algorithmic methods are "
+            "training-free but trade accuracy for higher compression; the column to optimise is set by "
+            "the deployment's hardware bottleneck.",
     widths=[0.9, 1.5, 1.5, 1.0, 1.2, 1.1, 0.9],
 )
 
@@ -996,7 +1007,9 @@ make_table(
         ["QuaRot", "Rotation-based 4-bit", "LLaMA-2-70B, W4A4KV4", "<=0.47 perplexity loss, ~99% zero-shot retained"],
     ],
     caption="Table 4. Representative methods and author-reported results. Settings differ and the "
-            "figures are not directly comparable (see Section 9.3).",
+            "figures are not directly comparable (see Section 9.3). Takeaway: headline gains are large "
+            "across the board (2-5x compression or throughput at near-lossless quality), but because "
+            "each is measured differently they cannot be ranked, which is exactly the gap MBE closes.",
     widths=[1.1, 1.6, 1.7, 2.6],
 )
 
@@ -1024,7 +1037,10 @@ make_table(
         ["R-KV", "learned (reasoning)", "math reasoning", "10-16%", "~100-105% of full"],
     ],
     caption="Table 5. Author-reported accuracy retention at a stated KV budget, collated from the cited "
-            "works. Settings differ; not a controlled comparison (cf. the MBE protocol, Section 10).",
+            "works. Settings differ; not a controlled comparison (cf. the MBE protocol, Section 10). "
+            "Takeaway: most methods hold near-full accuracy down to roughly 10-25 percent of the cache, "
+            "and the aggressive frontier (a few percent) is reached mainly by layer-adaptive and learned "
+            "methods.",
     widths=[1.0, 1.4, 1.7, 0.9, 1.9],
 )
 
@@ -1038,7 +1054,10 @@ try:
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     fc4 = doc.add_paragraph()
     r4 = fc4.add_run("Fig. 3. Surveyed references by publication year and method family "
-                     "(approximate single-family assignment from the reference corpus).")
+                     "(approximate single-family assignment from the reference corpus). Takeaway: "
+                     "the field expanded sharply in 2024 and stays active into 2025-2026, and the "
+                     "security and agentic categories appear only in the latest years, marking them "
+                     "as emerging and under-surveyed.")
     r4.bold = True; r4.font.size = Pt(9)
     fc4.alignment = WD_ALIGN_PARAGRAPH.CENTER
 except Exception as e:
@@ -1085,7 +1104,9 @@ try:
     r2 = fc2.add_run("Fig. 4. Memory-accuracy frontier plotted from author-reported "
                      "points (Table 5). Settings differ across papers, so positions are "
                      "indicative, not a controlled comparison; the MBE harness (Section 10) "
-                     "produces the controlled version.")
+                     "produces the controlled version. Takeaway: accuracy holds remarkably flat "
+                     "until very aggressive budgets, where a sharp knee appears, and the position "
+                     "of that knee is what the right method, and a matched-budget comparison, decides.")
     r2.bold = True
     r2.font.size = Pt(9)
     fc2.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -1233,7 +1254,9 @@ make_table(
         ["Method", "Deployment prerequisite", "Training-free vs calibration vs pre-training; compatibility (see Section 8.2)"],
     ],
     caption="Table 6. The Matched-Budget Evaluation (MBE) reporting specification. Methods report the "
-            "task-accuracy grid and system metrics at each fixed budget.",
+            "task-accuracy grid and system metrics at each fixed budget. Takeaway: fixing the model, "
+            "task, budget ladder, and system metrics is all that is needed to turn the incomparable "
+            "numbers of Tables 4 and 5 into a single comparable picture.",
     widths=[0.9, 1.7, 4.0],
 )
 
@@ -1339,7 +1362,7 @@ labelled("Competing interests.", "The authors have no relevant financial or non-
 labelled("Data availability.", "No new datasets were generated. The Matched-Budget Evaluation (MBE) protocol specification, the open evaluation harness, the KV Compression Card template, and the seed reference results described in Section 10 are released in a public repository at https://github.com/rohithreddybc/kv-cache-compression-mbe, with the evaluation manifest and reference cards also published as a dataset at https://huggingface.co/datasets/Rohithreddybc/kv-cache-compression-mbe and a live leaderboard at https://huggingface.co/spaces/Rohithreddybc/kv-cache-compression-leaderboard; all other works discussed are cited and publicly available.")
 labelled("Reproducibility.", "All claims in this survey cite publicly available works. The empirical results of Section 10 are reproducible by third parties: the released harness regenerates the reported seed results deterministically (fixed random seed), and any researcher can evaluate a new compression method, or reproduce the baselines at 7-8B scale on free cloud hardware, by supplying a single function to the provided notebook. The data behind the figures is traceable to the cited sources, and the reference list is the single source of truth for all citations.")
 labelled("Ethics approval.", "Not applicable. This review does not involve human participants, their data, or animals.")
-labelled("Author contributions.", "All authors contributed to the conception and design of the survey and approved the final manuscript. [Assign CRediT roles per author, e.g.: R.R.B.C. - Conceptualization, Investigation, Software (the MBE harness), Visualization, Writing - original draft; Author 2 - Investigation, Writing - review & editing; Author 3 - Investigation, Validation; Author 4 - Supervision, Writing - review & editing.]")
+labelled("Author contributions.", "All authors contributed to the conception and design of the survey and approved the final manuscript. [Assign CRediT roles per author, e.g.: Author 1 - Conceptualization, Investigation, Software (the MBE harness), Visualization, Writing - original draft; Author 2 - Investigation, Writing - review & editing; Author 3 - Investigation, Validation; Author 4 - Supervision, Writing - review & editing.]")
 labelled("Use of AI tools.", "Generative AI tools were used to assist with drafting, language editing, and reference organisation; the authors directed the work, take full responsibility for all technical content, analysis, and conclusions, and verified every claim and citation against primary sources. No AI system is listed as an author. The disclosure follows the journal's policy on AI use and should be adjusted by the authors to match their actual process.")
 
 # =====================================================================

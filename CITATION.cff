@@ -3,9 +3,8 @@ message: "If you evaluate KV cache compression under the MBE protocol, please ci
 title: "Breaking the Memory Wall: A Survey of Key-Value (KV) Cache Compression for Efficient Large Language Model (LLM) Inference"
 abstract: "Survey of KV cache compression for LLM inference, introducing the Matched-Budget Evaluation (MBE) protocol for standardized, fixed-budget reporting."
 authors:
-  - given-names: "Rohith"
-    family-names: "Reddy B. C."
-    alias: "rohithreddybc"
+  - given-names: "[Author 1 given name]"
+    family-names: "[Author 1 family name]"
   - given-names: "[Author 2 given name]"
     family-names: "[Author 2 family name]"
   - given-names: "[Author 3 given name]"
